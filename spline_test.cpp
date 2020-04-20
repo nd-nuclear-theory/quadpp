@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <cmath>
 #include <Eigen/Dense>
 #include "spline.h"
@@ -13,13 +14,14 @@ int main()
                            double dr = 1 / ((1 - x) * (1 - x));
                            return dr * std::exp(-r);
                          });
+  ys.tail(1) = 0;
 
-  auto result1 = quad::spline::Integrate(xs.head(num - 1), ys.head(num - 1));
-  auto result2 = quad::spline::Integrate(xs.head(num -1), ys.head(num - 1), "cubic");
-  auto result3 = quad::spline::Integrate(xs.head(num - 1), ys.head(num - 1), "akima");
+  auto result1 = quad::spline::Integrate(xs, ys);
+  auto result2 = quad::spline::Integrate(xs, ys, "cubic");
+  auto result3 = quad::spline::Integrate(xs, ys, "akima");
 
   std::cout << "Integrating exp(-r) from 0 to ∞." << "\n";
-  std::cout << "Using Steffen splines: " << result1 << "\n";
+  std::cout << "Using Steffen splines: " << std::setprecision(10) << std::fixed << result1 << "\n";
   std::cout << "Using Cubic splines: " << result2 << "\n";
   std::cout << "Using Akima splines: " << result3 << "\n";
 }

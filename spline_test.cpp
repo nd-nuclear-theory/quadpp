@@ -13,7 +13,7 @@ int main()
   const double low = 0, high = 1;
 
   Eigen::ArrayXd xs, rs, ys, jac;
-  quadpp::SemiInifiniteIntegralMesh(npts, low, high, xs, rs, jac);
+  quadpp::SemiInfiniteIntegralMesh(npts, low, high, xs, rs, jac);
   ys = jac * Eigen::exp(-rs);
   ys.tail(1) = 0;
 

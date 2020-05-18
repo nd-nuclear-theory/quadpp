@@ -1,6 +1,6 @@
 language: c++
 sudo: false
 install:
-  - g++ -std=c++11 -lm -I/usr/include/eigen3/ spline_test.cpp -o spline_test.out
+  - g++ -std=c++11 -lm -lgsl -lgslcblas -I/usr/include/eigen3/ spline.cpp spline_test.cpp -o spline_test.out
 script:
   - ./spline_test.out

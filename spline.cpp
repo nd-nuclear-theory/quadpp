@@ -1,5 +1,7 @@
 #include "spline.h"
 
+#include <gsl/gsl_spline.h>
+
 namespace quadpp {
 namespace spline {
 

@@ -17,8 +17,6 @@
 #ifndef SPLINE_H_
 #define SPLINE_H_
 
-#include <gsl/gsl_spline.h>
-
 #include <Eigen/Dense>
 #include <stdexcept>
 #include <string>
